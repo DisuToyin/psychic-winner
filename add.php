@@ -1,7 +1,9 @@
 <?php
 
 $errors = array('email' => '', 'title' => '', 'ingredients' => '');
-
+$email = "";
+$title = "";
+$ingredients = "";
 //check is data is sent to the server
 if (isset($_POST['submit'])) {
     // echo htmlspecialchars($_POST['email']);
@@ -49,17 +51,17 @@ if (isset($_POST['submit'])) {
     </h4>
     <form class="white" action="add.php" method="POST">
         <label>Your Email:</label>
-        <input type="text" name="email">
+        <input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
         <div class="red-text">
             <?php echo $errors['email'] ?>
         </div>
         <label>Pizza Title:</label>
-        <input type="text" name="title">
+        <input type="text" name="title" value="<?php echo htmlspecialchars($title) ?>">
         <div class="red-text">
             <?php echo $errors['title'] ?>
         </div>
         <label>Ingredients (comma separated):</label>
-        <input type="text" name="ingredients">
+        <input type="text" name="ingredients" value="<?php echo htmlspecialchars($ingredients) ?>">
         <div class="red-text">
             <?php echo $errors['ingredients'] ?>
         </div>
