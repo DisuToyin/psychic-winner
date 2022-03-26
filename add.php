@@ -1,9 +1,36 @@
 <?php
 //check is data is sent to the server
 if (isset($_POST['submit'])) {
-    echo htmlspecialchars($_POST['email']);
-    echo htmlspecialchars($_POST['title']);
-    echo htmlspecialchars($_POST['ingredients']);
+    // echo htmlspecialchars($_POST['email']);
+    // echo htmlspecialchars($_POST['title']);
+    // echo htmlspecialchars($_POST['ingredients']);
+
+    if (empty($_POST['email'])) {
+        echo 'An email is required <br/>';
+    } else {
+        $email = $_POST['email'];
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo 'email must be a valid email address';
+        }
+    }
+
+    if (empty($_POST['title'])) {
+        echo 'An title is required <br/>';
+    } else {
+        $title = $_POST['title'];
+        if (!preg_match('/^[a-zA-Z \s]+$/', $title)) {
+            echo 'Title must be letters only';
+        }
+    }
+
+    if (empty($_POST['ingredients'])) {
+        echo 'An ingredients is required <br/>';
+    } else {
+        $ingredients = $_POST['ingredients'];
+        if (!preg_match('/^[a-zA-Z \s]+$/', $ingredients)) {
+            echo 'ingredients must be letters only';
+        }
+    }
 }
 
 ?>
