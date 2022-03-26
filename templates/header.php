@@ -9,7 +9,9 @@
             background: #cbb09c !important
         }
 
-        .brand-text {}
+        .brand-text {
+            color: #cbb09c !important
+        }
     </style>
 </head>
 
